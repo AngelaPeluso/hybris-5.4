@@ -19,7 +19,6 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-3.1.xsd"
     >
- 
     <context:component-scan base-package="de.hybris.platform.cuppytrail"/>
 	<bean id="cuppytrailSystemSetup"
 		class="de.hybris.platform.cuppytrail.systemsetup.CuppyTrailSystemSetup"
@@ -30,6 +29,10 @@
     <bean id="defaultStadiumService" class="de.hybris.platform.cuppytrail.impl.DefaultStadiumService">
         <property name="stadiumDAO" ref="stadiumDAO"/>
     </bean>
+    <alias name="defaultStadiumFacade" alias="stadiumFacade"/>
+	<bean id="defaultStadiumFacade" class="de.hybris.platform.cuppytrail.facades.impl.DefaultStadiumFacade">
+  		<property name="stadiumService" ref="stadiumService" />
+	</bean>
 	<!--
 	The hybris platform provides one single Spring application context for beans located at the jalo layer.
 	Each extension can add beans to this context by specifying them at this configuration file.
