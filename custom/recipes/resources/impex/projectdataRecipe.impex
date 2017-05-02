@@ -1,0 +1,21 @@
+
+INSERT_UPDATE Recipe;	code[unique=true];name[lang=en];description[lang=en];time;difficult(code);people;RecipeEntry(prodotto(code))
+								;recipe1;polpettone;Fare;30;normal;5;food1,food2
+								;recipe2;polenta;Mescolare;30;normal;10;food3,food4
+								
+								
+								
+INSERT_UPDATE Food;	code[unique=true]; name[lang=en]; descrizione[lang=en]
+					;food1;carne;maiale
+					;food2;pane;granotenero
+					;food3;uova;gallina
+					;food4;farina;00
+								
+
+								
+INSERT_UPDATE RecipeEntry;	prodotto(code)[unique=true]; quantita;name[lang=en];unit(code)
+									;food1;3;20;pieces
+									;food2;2;40;pieces
+									;food3;1;30;pieces
+									;food4;1;30;pieces
+									

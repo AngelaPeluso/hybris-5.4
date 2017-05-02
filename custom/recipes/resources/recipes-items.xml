@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:noNamespaceSchemaLocation="items.xsd">
+		<enumtypes>
+        <enumtype code="DifficultyEnum" autocreate="true" generate="true" dynamic="false">
+            <value code="easy"/>
+            <value code="normal"/>
+            <value code="hard"/>
+        </enumtype>
+    </enumtypes>
+    <relations>
+        <relation code="RecipeRecipeEntryRelation"
+                localized="false" generate="true" autocreate="true">
+            <sourceElement type="Recipe" qualifier="Recipe" cardinality="one"/>
+            <targetElement type="RecipeEntry" qualifier="RecipeEntry" cardinality="many"/>
+        </relation>
+    </relations>
+<itemtypes>
+        <itemtype code="Recipe" generate="true" autocreate="true">
+            <deployment table="Recipe" typecode="10444" />
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String" >
+                    <persistence type="property"/>
+                    <modifiers optional="false" unique="true"/>
+                </attribute>
+                <attribute qualifier="name" type="localized:java.lang.String">
+                    <persistence type="property" />
+                </attribute>
+                <attribute qualifier="description" type="localized:java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="time" type="java.lang.Integer">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="difficult" type="DifficultyEnum">
+                    <persistence type="property"/>
+                    <defaultvalue>em().getEnumerationValue("DifficultyEnum","normal")</defaultvalue>
+                </attribute>
+                <attribute qualifier="people" type="java.lang.Integer">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="NumIngr" type="java.lang.Integer">
+                    <persistence type="dynamic" attributeHandler="numberOfIngredientsAttributeHandler"/>
+                    <modifiers write="false"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+        
+        <itemtype code="RecipeEntry" generate="true" autocreate="true">
+            <deployment table="RecipeEntry" typecode="10445" />
+            <attributes>
+                <attribute qualifier="prodotto" type="Food" >
+                    <persistence type="property"/>
+                    <modifiers optional="false" unique="true"/>
+                </attribute>
+                <attribute qualifier="quantita" type="java.lang.Integer">
+                    <persistence type="property" />
+                </attribute>
+                <attribute qualifier="name" type="localized:java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="unit" type="Unit">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+        
+        <itemtype code="Food" generate="true" autocreate="true">
+            <deployment table="Food" typecode="10446" />
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String" >
+                    <persistence type="property"/>
+                    <modifiers optional="false" unique="true"/>
+                </attribute>
+                <attribute qualifier="name" type="localized:java.lang.String">
+                    <persistence type="property" />
+                </attribute>
+                <attribute qualifier="descrizione" type="localized:java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+    </itemtypes>
+</items>
