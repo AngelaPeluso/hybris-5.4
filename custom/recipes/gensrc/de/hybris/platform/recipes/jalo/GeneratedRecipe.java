@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2-mag-2017 18.02.04                         ---
+ * --- Generated at 3-mag-2017 11.59.34                         ---
  * ----------------------------------------------------------------
  *  
  * [y] hybris Platform
@@ -26,11 +26,14 @@ import de.hybris.platform.jalo.c2l.Language;
 import de.hybris.platform.jalo.enumeration.EnumerationValue;
 import de.hybris.platform.jalo.type.CollectionType;
 import de.hybris.platform.recipes.constants.RecipesConstants;
+import de.hybris.platform.recipes.jalo.Menu;
 import de.hybris.platform.recipes.jalo.RecipeEntry;
 import de.hybris.platform.util.OneToManyHandler;
+import de.hybris.platform.util.Utilities;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,6 +56,13 @@ public abstract class GeneratedRecipe extends GenericItem
 	public static final String PEOPLE = "people";
 	/** Qualifier of the <code>Recipe.RecipeEntry</code> attribute **/
 	public static final String RECIPEENTRY = "RecipeEntry";
+	/** Qualifier of the <code>Recipe.superMenu</code> attribute **/
+	public static final String SUPERMENU = "superMenu";
+	/** Relation ordering override parameter constants for RecipeMenuRelation from ((recipes))*/
+	protected static String RECIPEMENURELATION_SRC_ORDERED = "relation.RecipeMenuRelation.source.ordered";
+	protected static String RECIPEMENURELATION_TGT_ORDERED = "relation.RecipeMenuRelation.target.ordered";
+	/** Relation disable markmodifed parameter constants for RecipeMenuRelation from ((recipes))*/
+	protected static String RECIPEMENURELATION_MARKMODIFIED = "relation.RecipeMenuRelation.markmodified";
 	/**
 	* {@link OneToManyHandler} for handling 1:n RECIPEENTRY's relation attributes from 'many' side.
 	**/
@@ -458,6 +468,128 @@ public abstract class GeneratedRecipe extends GenericItem
 	public void removeFromRecipeEntry(final RecipeEntry value)
 	{
 		removeFromRecipeEntry( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Recipe.superMenu</code> attribute.
+	 * @return the superMenu
+	 */
+	public Collection<Menu> getSuperMenu(final SessionContext ctx)
+	{
+		final List<Menu> items = getLinkedItems( 
+			ctx,
+			false,
+			RecipesConstants.Relations.RECIPEMENURELATION,
+			null,
+			false,
+			false
+		);
+		return items;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Recipe.superMenu</code> attribute.
+	 * @return the superMenu
+	 */
+	public Collection<Menu> getSuperMenu()
+	{
+		return getSuperMenu( getSession().getSessionContext() );
+	}
+	
+	public long getSuperMenuCount(final SessionContext ctx)
+	{
+		return getLinkedItemsCount(
+			ctx,
+			false,
+			RecipesConstants.Relations.RECIPEMENURELATION,
+			null
+		);
+	}
+	
+	public long getSuperMenuCount()
+	{
+		return getSuperMenuCount( getSession().getSessionContext() );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Recipe.superMenu</code> attribute. 
+	 * @param value the superMenu
+	 */
+	public void setSuperMenu(final SessionContext ctx, final Collection<Menu> value)
+	{
+		setLinkedItems( 
+			ctx,
+			false,
+			RecipesConstants.Relations.RECIPEMENURELATION,
+			null,
+			value,
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(RECIPEMENURELATION_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Recipe.superMenu</code> attribute. 
+	 * @param value the superMenu
+	 */
+	public void setSuperMenu(final Collection<Menu> value)
+	{
+		setSuperMenu( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to superMenu. 
+	 * @param value the item to add to superMenu
+	 */
+	public void addToSuperMenu(final SessionContext ctx, final Menu value)
+	{
+		addLinkedItems( 
+			ctx,
+			false,
+			RecipesConstants.Relations.RECIPEMENURELATION,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(RECIPEMENURELATION_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to superMenu. 
+	 * @param value the item to add to superMenu
+	 */
+	public void addToSuperMenu(final Menu value)
+	{
+		addToSuperMenu( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from superMenu. 
+	 * @param value the item to remove from superMenu
+	 */
+	public void removeFromSuperMenu(final SessionContext ctx, final Menu value)
+	{
+		removeLinkedItems( 
+			ctx,
+			false,
+			RecipesConstants.Relations.RECIPEMENURELATION,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(RECIPEMENURELATION_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from superMenu. 
+	 * @param value the item to remove from superMenu
+	 */
+	public void removeFromSuperMenu(final Menu value)
+	{
+		removeFromSuperMenu( getSession().getSessionContext(), value );
 	}
 	
 	/**
